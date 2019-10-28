@@ -62,7 +62,7 @@ exports.use = (req, res, next) => {
     Base.getByRaffleRoom(raffleroom)
         .then((result) => {
             console.log(result[0])
-            if (result[0].length > 9) {
+            if (result[0].length > 4) {
                 const winnerRaffle = raffle(result[0])
                 res.render("main/use", {
                     info: result[0],
