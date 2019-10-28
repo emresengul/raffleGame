@@ -1,0 +1,45 @@
+doctype html
+
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+  title Code Generator
+.container
+    .codeArea
+        h1 Don't forget to copy the code.
+        h4 Code Activision Count (#{activision}/1)
+        if (activision == 1)
+            h4.text-danger Not: You can't use this code again.
+        .input-group.mb-3
+            .copy-alert(style='display: block;')
+            input#generator-area.form-control.mt-5(type='text' value=`${code}` readonly='readonly')
+            .input-group-append
+            button#copy.btn.btn-outline-primary.mt-5(onclick='copyText()') &#x1F4CB;
+        h1 Use Code Now
+        a(href='/use')
+            button.btn.btn-success.col-md-12 USE NOW
+        h1  For New Code
+        a(href="/")
+            button.btn.btn-danger.col-md-12 REFRESH PAGE
+
+
+
+
+    
+// Optional JavaScript
+script(src='../js/dom.js')
+// jQuery first, then Popper.js, then Bootstrap JS
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
+//
+  Rastgele kod verecek,
+  Kod veri tabanına kaydedilecek,
+  Kodu kullanarak çekilişe katılacak,
+  Kodu kullanırken database ile kontrol edecek,
+  Varsa çekilişe o kod ile katılacak,
+  Çekiliş kişisi dolunca otomatik çekilecek

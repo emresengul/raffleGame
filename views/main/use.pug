@@ -1,0 +1,56 @@
+doctype html
+head
+  // Required meta tags
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+  // Bootstrap CSS
+  link(rel='stylesheet' href='css/main.css')
+  link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css' integrity='sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T' crossorigin='anonymous')
+  title Use Code
+.container
+  if (action !== "undefined"  && action=== "nofind")
+      div.alert.alert-danger Code not found.
+  if (action !== "undefined"  && action=== "okey")
+      div.alert.alert-success Your code has been added.
+  if (action !== "undefined" && action == "used")
+       div.alert.alert-warning This code was used.
+  h1 Raffle
+  .space
+  if (newUser == true)
+    form(action="/use" method="POST")
+      .form-row
+        .col
+          input.form-control.adder(type='text' name="name"  placeholder='Name' required="required")
+        .col
+          input.form-control.adder(type='text' name="code"  placeholder='Code' required="required")
+        button.btn.btn-warning JOIN
+  if (newUser == false)
+    h1 We have a winner
+      h6 If you can't see Refresh Page 
+  .space
+
+  table.table.table-striped.table-dark
+    thead
+      tr
+        th(scope='col') Name
+        th(scope='col') Code
+        th(scope='col') Winner
+    tbody
+    each test in info
+      tr
+      //- if test.winner == "WINNER"
+      if (test.winner == "WINNER")
+        td= test.name
+        td= test.code
+        td.text-danger= test.winner
+        h1.text-danger= test.name + " is " +   test.winner + " Code: " + test.code
+      if test.winner == null
+        td= test.name
+        td= test.code
+        td.text-danger= test.winner
+
+
+
+script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js' integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous')
+script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js' integrity='sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM' crossorigin='anonymous')
