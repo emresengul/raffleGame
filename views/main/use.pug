@@ -15,6 +15,8 @@ head
   if (action !== "undefined" && action == "used")
        div.alert.alert-warning This code was used.
   h1 Raffle
+  a(href="/")
+    button#generator.btn.btn-primary.col-md-12.mt-5 GENERATE CODE
   .space
   if (newUser == true)
     form(action="/use" method="POST")
