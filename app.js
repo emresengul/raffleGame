@@ -3,6 +3,8 @@ const app = express();
 const userRoutes = require("./routes/user");
 const bodyParser = require("body-parser");
 const path = require("path");
+const PORT = process.env.PORT;
+
 
 
 
@@ -16,9 +18,6 @@ app.use(express.static(path.join(__dirname,"public")));
 
 app.use(userRoutes);
 
-
-
-
-app.listen(8080,()=>{
-    console.log(`App Starting on port`)
+app.listen(PORT || 8080,()=>{
+    console.log(`App Starting on port ${PORT}`)
 });
